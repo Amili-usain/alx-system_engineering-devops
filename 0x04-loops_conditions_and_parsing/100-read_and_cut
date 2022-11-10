@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-# read and cut
+# Displays the content of the file /etc/passwd.
+#
+#   username
+#   user id
+#   Home directory path for the user
 
-n=$( cut -d ":" -f 1,3,5 > /etc/passwd )
-while read -r "$n"
-do
-  echo "$n"
+exec < /etc/passwd
+
+while read -r passwd_output ; do
+	echo "$passwd_output" | cut -d':' -f1,3,6
 done
