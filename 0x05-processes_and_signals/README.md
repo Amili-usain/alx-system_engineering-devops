@@ -28,7 +28,7 @@ with `ps`, `pgrep`, `pkill`, `kill`, `exit`, and `trap`.
   `To infinity and beyond` indefinitely with a `sleep 2` in between each iteration.
 
 * **5. Don't stop me now!**
-  * [5-don't_stop_me_now](./5-don't_stop_me_now): Bash script that stops the
+  * [5-dont_stop_me_now](./5-dont_stop_me_now): Bash script that stops the
   [4-to_infinity_and_beyond](./4-to_infinity_and_beyond) process using `kill`.
 
 * **6. Stop me if you can**
