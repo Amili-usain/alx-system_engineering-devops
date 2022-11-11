@@ -27,13 +27,13 @@ with `ps`, `pgrep`, `pkill`, `pkill`, `exit`, and `trap`.
   * [4-to_infinity_and_beyond](./4-to_infinity_and_beyond): Bash script that displays
   `To infinity and beyond` indefinitely with a `sleep 2` in between each iteration.
 
-* **5. Kill me now**
-  * [5-kill_me_now](./5-kill_me_now): Bash script that kills the
+* **5. Don't stop me now!**
+  * [5-don't_stop_me_now](./5-don't_stop_me_now): Bash script that stops the
   [4-to_infinity_and_beyond](./4-to_infinity_and_beyond) process using `kill`.
 
-* **6. Kill me now made easy**
-  * [6-kill_me_now_made_easy](./6-kill_me_now_made_easy): Bash script that kills the
-  [4-to_infinity_and_beyond](./4-to_infinity_and_beyond) process using `pkill`.
+* **6. Stop me if you can**
+  * [6-stop_me_if_you_can](./6-stop_me_if_you_can): Bash script that stops the
+  [4-to_infinity_and_beyond](./4-to_infinity_and_beyond) process without using `kill` or `killall`.
 
 * **7. Highlander**
   * [7-highlander](./7-highlander): Bash script that displays `To infinity and beyond` indefinitely
