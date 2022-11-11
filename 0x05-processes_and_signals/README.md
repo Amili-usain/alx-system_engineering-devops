@@ -36,8 +36,8 @@ with `ps`, `pgrep`, `pkill`, `pkill`, `exit`, and `trap`.
   [4-to_infinity_and_beyond](./4-to_infinity_and_beyond) process using `pkill`.
 
 * **7. Highlander**
-  * [7-highlander](./7-highlander): Bash script that displays `To infinity and beyond`
-  indefinitely with a `sleep 2` in between each iteration.
+  * [7-highlander](./7-highlander): Bash script that displays `To infinity and beyond` indefinitely
+  * with a `sleep 2` in between each iteration.
   * Displays `I am invincible!!!` upon receiving a `SIGTERM` signal.
 
 * **8. Beheaded process**
