@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# infinite loop wirtes i am alive like a mad man /tmp/my_process
+
+while true
+do
+    sudo bash -c 'echo "I am alive!" >> /tmp/my_process'
+    sleep 2
+done
