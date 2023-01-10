@@ -1,9 +1,8 @@
-# Create a file using Puppet
-
-file { '/tmp/holberton':
-  ensure  => 'present',
-  content => 'I love Puppet',
-  owner   => 'www-data',
-  group   => 'www-data',
-  mode    => '0744'
+#This manifest create a file at /tmp as required
+file { '/tmp/school':
+    ensure  => 'file',
+    owner   => 'www-data',
+    group   => 'www-data',
+    mode    => '0744',
+    content => 'I love Puppet',
 }
