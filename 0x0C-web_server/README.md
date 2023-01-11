@@ -1,15 +1,6 @@
 0x0C. Web server
 ================
 
-Concepts
---------
-
-*For this project, students are expected to look at this concept:*
-
--   [What is a Child Process?](https://alx-intranet.hbtn.io/concepts/110)
-
-![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/266/8Gu52Qv.png)
-
 Background Context
 ------------------
 
@@ -46,8 +37,6 @@ Tips: to test your answer Bash script, feel free to reproduce the checker enviro
 
 Learning Objectives
 -------------------
-
-At the end of this project, you are expected to be able to [explain to anyone](https://alx-intranet.hbtn.io/rltoken/EHyxcIwPtD2SzEGRKOnT3g "explain to anyone"), **without the help of Google**:
 
 ### General
 
