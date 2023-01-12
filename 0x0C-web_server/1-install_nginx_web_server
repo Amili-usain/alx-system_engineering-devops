@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
-# Install a nginx web server listening on port 80.
-#
-# Also, when querying nginx at its root / with a GET
-# request, it returns a page that contains the string
-# 'Holberton School'.
-#
+# installs nginx and configure it to listen on port 80
+# print "Hello World"
 
-apt update
-apt install -y nginx
-ufw allow 'Nginx HTTP'
-echo "Hello World!" > /var/www/html/index.html
-service nginx restart
+sudo apt-get update
+sudo apt-get -y install nginx
+echo 'Hello World!' > /var/www/html/index.html
+service nginx start
