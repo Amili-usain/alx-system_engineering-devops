@@ -1,18 +1,30 @@
 #!/usr/bin/env bash
-# Install nginx and start it
+# Installs Nginx with the following configurations:
+## server
+## Nginx should be listening on port 80
+## When querying Nginx at its root / with a GET request (requesting a page)\
+### using curl, it must return a page that contains the string Hello World!
+## As an answer file, write a Bash script that configures a new Ubuntu machine\
+### to respect above requirements (this script will be run on the server itself)
+## You can’t use systemctl for restarting nginx
+
+apt-get -y update
 apt-get -y install nginx
 
-# Firewall setting: Allow Nginx to serve on HTTP
-ufw allow 'Nginx HTTP'
+touch /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 
-# Override the default index file served as home page
-echo "Hello World!" >> /var/www/html/index.html
+printf %s "server {
+    listen		80 default_server;
+    listen		[::]:80 default_server;
 
-#Give the user  ownership to website files
-sudo chown -R $USER:$USER /var/www/html
-sudo chmod -R 755 /var/www
+    root		/var/www/html;
+    index		index.html index.htm index.nginx-debian.html;
 
-# Redirect to /redirect_me to a youtube video
-sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=TfgBHC5gvTI;
+    }
+}
+" > /etc/nginx/sites-available/default
 
-service nginx start
+service nginx restart
