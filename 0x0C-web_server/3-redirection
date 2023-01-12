@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
-# Install a nginx web server listening on port 80.
-# Also, when querying nginx at its root / with a GET
-## request, it returns a page that contains the string
-## 'Hello World!'.
-# Also, the script, configure a directive of the Nginx server
-## to redirect to another page with 301 HTTP Code
+# Install nginx and start it
+apt-get -y install nginx
 
-link="https://www.youtube.com/watch?v=QH2-TGUlwu4"
-new_conf="server_name _;\n\trewrite ^/redirect_me/$ $link permanent;"
-
-apt update
-apt install -y nginx
+# Firewall setting: Allow Nginx to serve on HTTP
 ufw allow 'Nginx HTTP'
-echo "Hello World!" > /var/www/html/index.html
-sed -i "s|server_name\ _;|$new_conf|" /etc/nginx/sites-available/default
-service nginx restart
+
+# Override the default index file served as home page
+echo "Hello World!" >> /var/www/html/index.html
+
+#Give the user  ownership to website files
+sudo chown -R $USER:$USER /var/www/html
+sudo chmod -R 755 /var/www
+
+# Redirect to /redirect_me to a youtube video
+sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
+service nginx start
