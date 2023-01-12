@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+<<<<<<< HEAD
 # Installs Nginx with the following configurations:
 ## server
 ## Nginx should be listening on port 80
@@ -9,6 +10,10 @@
 ## You can’t use systemctl for restarting nginx
 
 apt-get -y update
+=======
+<<<<<<< HEAD
+# Install nginx and start it
+>>>>>>> c50a9eb1ab565147c02ad7bcfe7ae6a87be2ea98
 apt-get -y install nginx
 
 touch /var/www/html/index.html
@@ -27,4 +32,39 @@ printf %s "server {
 }
 " > /etc/nginx/sites-available/default
 
+<<<<<<< HEAD
 service nginx restart
+=======
+service nginx start
+=======
+# Installs, configures, and starts the server
+apt-get update
+apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+mkdir -p /var/www/html/
+sudo chmod -R 755 /var/www
+echo 'Hello World!' > /var/www/html/index.html
+SERVER_CONFIG=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+	if (\$request_filename ~ redirect_me){
+		rewrite ^ https://sketchfab.com/bluepeno/models permanent;
+	}
+}"
+
+bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+
+if [ "$(pgrep -c nginx)" -le 0 ]; then
+	service nginx start
+else
+	service nginx restart
+fi
+>>>>>>> 1356d5934d0da87e2686ae4683de111a67367c06
+>>>>>>> c50a9eb1ab565147c02ad7bcfe7ae6a87be2ea98
