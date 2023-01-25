@@ -39,7 +39,7 @@ frontend amili-usain.tech-http-frontend
 	default_backend	 amili-usain.tech-backend
 
 frontend  amili-usain.tech-https-frontend
-	bind *:443 ssl crt /etc/letsencrypt/live/www.amili-usain.tech/fullchain.pem
+	bind *:443 ssl crt /etc/haproxy/certs/www.amili-usain.tech.pem
 	http-request set-header X-Forwarded-Proto https
         default_backend amili-usain.tech-backend
 

@@ -22,7 +22,8 @@ frontend www-http
     bind   0.0.0.0:80
     reqadd X-Forwarded-Proto:\ http
     default_backend www-backend
-    redirect scheme https code 301 if !{ ssl_fc }
+    redirect scheme https code 301 if { h
+dr(Host) -i www.amili-usain.tech } !{ ssl_fc }
 
 frontend www-https
     bind   0.0.0.0:443 ssl crt /etc/haproxy/cert
@@ -33,8 +34,8 @@ frontend www-https
 
 backend www-backend
     balance  roundrobin
-    redirect scheme https if !{ ssl_fc }
-	server 67113-web-01 54.173.26.191:80 check
+    http-request redirect scheme https code 301 if { hdr(Host) -i www.amili-usain.tech } !{ ssl_fc }
+    server 67113-web-01 54.173.26.191:80 check
     server 67113-web-02 54.237.65.84:80 check
 
 backend letsencrypt-backend
