@@ -6,7 +6,7 @@ global
         stats timeout 30s
         user haproxy
         group haproxy
-        daemo
+        daemon
 
         maxconn 2048
         tune.ssl.default-dh-param 2048
@@ -42,14 +42,14 @@ defaults
 frontend www-http
         mode http
         bind *:80
-        reqadd X-Forwarded-Proto:\ http
+        http-request set-header X-Forwarded-Proto http
 	redirect scheme https code 301 if !{ ssl_fc }
         default_backend www-backend
 
 frontend www-https
         mode http
-        bind *:443 ssl crt /etc/haproxy/certs/amili-usain.tech.pem
-        reqadd X-Forwarded-Proto:\ https
+        bind *:443 ssl crt /etc/haproxy/certs/www.amili-usain.tech.pem
+        http-request set-header X-Forwarded-Proto http
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
         default_backend www-backend
