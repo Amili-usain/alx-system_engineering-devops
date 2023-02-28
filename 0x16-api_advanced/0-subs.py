@@ -14,7 +14,7 @@ def number_of_subscribers(subreddit):
                                                        subreddit=subreddit)
 
     # Set an User-Agent
-    user_agent = {'User-Agent': 'Python/requests'}
+    user_agent = {'User-Agent': 'Amili-usain'}
 
     # Get the Response of the Reddit API
     res = requests.get(api_uri, headers=user_agent,
