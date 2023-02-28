@@ -3,7 +3,7 @@
 from requests import get
 
 REDDIT = "https://www.reddit.com/"
-HEADERS = {'user-agent': 'my-app/0.0.1'}
+HEADERS = {'user-agent': 'Amili-usain'}
 
 
 def count_words(subreddit, word_list, after="", word_dic={}):
